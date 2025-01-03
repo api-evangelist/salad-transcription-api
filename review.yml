@@ -1,4 +1,4 @@
-executed: '2025-01-03T16:11:46.227Z'
+executed: '2025-01-03T16:12:13.419Z'
 results:
   - code: apis-json-specification-aid-info
     message: There is an aid.
@@ -297,7 +297,7 @@ results:
         character: 7
       end:
         line: 63
-        character: 15
+        character: 23
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
     path:
@@ -335,10 +335,10 @@ results:
     severity: 2
     range:
       start:
-        line: 34
+        line: 32
         character: 9
       end:
-        line: 34
+        line: 32
         character: 34
   - code: apis-json-apis-properties-pricing-info
     message: Has Pricing
@@ -349,10 +349,10 @@ results:
     severity: 2
     range:
       start:
-        line: 35
+        line: 34
         character: 10
       end:
-        line: 35
+        line: 34
         character: 17
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
@@ -363,10 +363,10 @@ results:
     severity: 2
     range:
       start:
-        line: 38
+        line: 36
         character: 9
       end:
-        line: 38
+        line: 36
         character: 34
   - code: apis-json-apis-properties-about-info
     message: Has About
@@ -377,10 +377,10 @@ results:
     severity: 2
     range:
       start:
-        line: 39
+        line: 38
         character: 10
       end:
-        line: 39
+        line: 38
         character: 15
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
@@ -391,10 +391,10 @@ results:
     severity: 2
     range:
       start:
-        line: 46
+        line: 44
         character: 9
       end:
-        line: 46
+        line: 44
         character: 35
   - code: apis-json-apis-properties-security-info
     message: Has Security Path
@@ -405,10 +405,10 @@ results:
     severity: 2
     range:
       start:
-        line: 47
+        line: 46
         character: 10
       end:
-        line: 47
+        line: 46
         character: 18
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
@@ -419,10 +419,10 @@ results:
     severity: 2
     range:
       start:
-        line: 50
+        line: 48
         character: 9
       end:
-        line: 50
+        line: 48
         character: 34
   - code: apis-json-apis-properties-privacy-policy-info
     message: Has an API Privacy Policy
@@ -433,10 +433,10 @@ results:
     severity: 2
     range:
       start:
-        line: 51
+        line: 50
         character: 10
       end:
-        line: 51
+        line: 50
         character: 23
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
@@ -447,10 +447,10 @@ results:
     severity: 2
     range:
       start:
-        line: 54
+        line: 52
         character: 9
       end:
-        line: 54
+        line: 52
         character: 32
   - code: apis-json-apis-properties-terms-of-service-info
     message: Has an API Terms of Service
@@ -461,10 +461,10 @@ results:
     severity: 2
     range:
       start:
-        line: 55
+        line: 54
         character: 10
       end:
-        line: 55
+        line: 54
         character: 24
   - code: apis-json-apis-properties-url-info
     message: Property URLs Are Valid
@@ -475,10 +475,10 @@ results:
     severity: 2
     range:
       start:
-        line: 58
+        line: 56
         character: 9
       end:
-        line: 58
+        line: 56
         character: 32
   - code: apis-json-created-info
     message: There is a created date.
