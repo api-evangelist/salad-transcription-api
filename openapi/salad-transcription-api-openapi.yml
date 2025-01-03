@@ -1,0 +1,480 @@
+openapi: 3.0.0
+info:
+  title: Salad Transcription API
+  description: >-
+    [Fork this PostMan collection to make actual API calls if you haven't
+    yet.](https://www.postman.com/salad-apis/workspace/salad-transcription-api/collection/34559698-f682b990-8c66-4f8f-a8ce-f2cafe8caaac/fork?origin=request-send)
+
+
+    Then add your API URL & API Keys as the initial and current values in your
+    forked PostMan [collection
+    variables](https://www.postman.com/salad-apis/workspace/salad-transcription-api/collection/34559698-f682b990-8c66-4f8f-a8ce-f2cafe8caaac?tab=variables).
+    Click save.
+
+
+    <img
+    src="https://content.pstmn.io/7d1288c6-fe5f-4b9d-a3ca-88fa7fec765d/SW1nMi5wbmc=">
+
+
+    Next, click Transcribe in the left nav.
+
+
+    To make a Transcription request, you must check/update the following Body
+    inputs to ensure you get the desired transcript output. This can be found in
+    the Center Nav of the Transcribe page.
+
+
+    <img
+    src="https://content.pstmn.io/78a51fe3-2605-4d31-8abb-43dc9c502201/U2NyZWVuc2hvdCAyMDI0LTA1LTI5IGF0IDkucG5n">
+
+
+    Insert your media `"url"`. It will look like this
+    [<code>https://url-where-your-file-is-hosted.mp4.</code>](https://getartists.world/wp-content/uploads/Salad%20Transcription%20Benchmark%20Data%20Set/AAPL%20Stock%20_%20Apple%20Inc.%20Q1%202021%20Earnings%20Call.mp4.)
+    You can't use YouTube videos, Google Drive, or other file-sharing services.
+    It must be on your website or a publicly available storage bucket like S3.
+    If you don't have any of these, please use Salad's simple storage service
+    [here](https://docs.salad.com/salad-simple-storage-service).
+
+
+    There is no need to convert your media files; send any of the following
+    formats to Salad's Transcription API
+
+
+    - _Audio:_ AIFF, FLAC, M4A, MP3, WAV
+        
+    - _Video:_ MP4, MKV, MOV, WEBM, WMA
+        
+    - **`language_code:`** Transcription is available in 97 languages. We
+    automatically identify the source language and transcribe the following
+    languages.
+        
+        - Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Bashkir, Basque, Belarusian, Bengali, Bosnian, Breton, Bulgarian, Burmese, Catalan, Chinese (Cantonese), Chinese (Mandarin), Croatian, Czech, Danish, Dutch, English, Estonian, Faroese, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hebrew, Hindi, Hungarian, Icelandic, Indonesian, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latvian, Lithuanian, Macedonian, Malay, Malayalam, Maltese, Marathi, Mongolian, Nepali, Norwegian, Oriya, Pashto, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Sanskrit, Serbian, Shona, Sindhi, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tagalog, Tajik, Tamil, Tatar, Telugu, Thai, Turkish, Turkmen, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Yiddish, Yoruba, Zulu.
+            
+    - **`diarization:`** Set to `"true"` for speaker separation and
+    identification. If you don't require it, set it to `"false"`.
+        
+        - Diarization requires the `language_code` to be defined. By default, it is set to `"en"` (English). Update to these supported source languages if required. `"fr"` (French), `"de"` (German), `"es"` (Spanish), "it" (Italian), `"ja"` (Japanese), `"zh"` (Chinese), `"nl"` (Dutch), `"uk"` (Ukrainian), `"pt"` (Portuguese), `"ar"` (Arabic), "cs (Czech), `"ru"` (Russian), `"pl"` (Polish), `"hu"` (Hungarian), `"fi"` (Finnish), `"fa"` (Persian), `"el"` (Greek), `"tr"` (Turkish), `"da"` (Danish), `"he"` (Hebrew), `"vi"` (Vietnamese), `"ko"` (Korean), `"ur"` (Urdu), `"te"` (Telugu), `"hi"` (Hindi), `"ca"` (Catalan), `"ml"` (Malayalam).
+            
+    - **`word_level_timestamps:`** Set to `"true"` to get word-level timestamps.
+    Set to `"false"`, to get only sentence-level timestamps.
+        
+    - **`srt:`** Set to `"true`" to generate a .srt output for caption and
+    subtitles. If you don't require it, set it to `"false"`
+        
+
+    Then click Send to submit your API post request, which, if successful, will
+    display a confirmation response that will include the job `"id"` you'll need
+    to [get your
+    transcript](https://www.postman.com/salad-apis/workspace/salad-transcription-api/request/34559698-8289f043-40d8-4de1-a95e-7111285aeed9).
+    It will look like this
+    `00-681d01e03cec5f7122952100b66f2330-aa5b353301b6bc50-01`
+
+
+    <img
+    src="https://content.pstmn.io/fa3f4482-3e8c-4177-ba27-d7453776e9ff/c2VuZC1yZXF1ZXN0LnBuZw==">
+
+
+    Now it's time to get your transcript by clicking on Get Transcript in the
+    left nav.
+
+
+    To retrieve your transcript, replace _(insert-job-id-here) in_ the GET url
+    after the /.
+
+
+    <img
+    src="https://content.pstmn.io/86b3cd54-ee45-4f53-a406-11cc680d4354/aW5zZXJ0LWpvYi1pZC5wbmc="
+    width="661" height="372">
+
+
+    Click Send, and if successful, you will see a status response, including
+    your transcript, to be saved in .json format. All jobs are purged after 24
+    hours to adhere to Salad's [security](https://salad.com/security) and
+    [privacy standards](https://salad.com/privacy).
+
+
+    <img
+    src="https://content.pstmn.io/260a20b6-85a1-4c4b-b4b3-b9f6744c250f/Z2V0LXRyYW5zY3JpcHQucG5n">
+
+
+    Here's an example .json output.
+
+
+    ``` json
+
+    {
+      "id": "54e84442-3576-45ca-904c-a1d90bc77baf",
+      "input": {
+        "url": "https://example.com/path/to/file.mp3",
+        "language_code": "en",
+        "word_level_timestamps": true,
+        "diarization": true,
+        "srt": true
+      },
+      "metadata": {
+        "my-job-id": 1234
+      },
+      "status": "succeeded",
+      "events": [
+        {
+          "action": "created",
+          "time": "2024-05-15T23:49:37.9946816+00:00"
+        },
+        {
+          "action": "started",
+          "time": "2024-05-15T23:50:23.0483322+00:00"
+        },
+        {
+          "action": "succeeded",
+          "time": "2024-05-15T23:50:23.4688229+00:00"
+        }
+      ],
+      "output": {
+        "segments": [
+          {
+            "start": 19.2,
+            "end": 19.903,
+            "text": "Thank you.",
+            "words": [
+              {
+                "word": "Thank",
+                "start": 19.662,
+                "end": 19.783,
+                "score": 0.232
+              },
+              {
+                "word": "you.",
+                "start": 19.803,
+                "end": 19.903,
+                "score": 0.545
+              }
+            ],
+            "speaker": "SPEAKER_00"
+          }
+        ],
+        "word_segments": [
+          {
+            "word": "Thank",
+            "start": 19.662,
+            "end": 19.783,
+            "score": 0.232,
+            "speaker": "SPEAKER_00"
+          },
+          {
+            "word": "you.",
+            "start": 19.803,
+            "end": 19.903,
+            "score": 0.545,
+            "speaker": "SPEAKER_00"
+          }
+        ],
+        "srt_content": "1
+    00:00:19,2                       --> 00:00:22,233
+
+    Because when we change the dialogue, we can change our world.
+
+    ",
+        "duration": 142.7795,
+        "processing_time": 51.17370915412903
+      },
+      "create_time": "2024-05-15T23:49:37.9946816+00:00",
+      "update_time": "2024-05-15T23:50:23.4688229+00:00"
+    }
+
+     ```
+
+    If you configured your Input Body to include an .srt for captions or
+    subtitles, at the end of the .json response you'll find the output you need
+    in `"srt_content"`
+
+
+    ``` json
+     "srt_content": "1
+    00:00:19,2                       --> 00:00:22,233
+
+    Because when we change the dialogue, we can change our world.
+
+    ",
+
+     ```
+
+    **"status"**
+
+
+    If your transcription request is
+
+
+    - _pending_ it has not yet been picked up for processing.
+        
+    - _created_ the transcription job is now in our queue to be processed.
+        
+    - _running_ the transcription is processing.
+        
+    - _"succeeded"_ the transcript is ready.
+        
+    - _failed_ the transcript was not created. We will automatically re-try
+    the transcription process until it fails three times. If we are unable to
+    transcribe your media, you will get a 200 error with one of the following
+    messages. Send us a support request at
+    [support@salad.com](https://mailto:support@salad.com) if this happens.
+        
+        - File size is more than 3GB  
+            File can not be downloaded or duration is missing. Please check your file and try again.  
+            File duration is more than 2.5 hours
+  version: 1.0.0
+servers:
+  - url: http://{{api url}}
+paths:
+  /:
+    post:
+      tags:
+        - default
+      summary: Transcribe
+      description: >-
+        To make a Transcription request, you must check/update the following
+        [Body
+        inputs](https://www.postman.com/salad-apis/workspace/salad-transcription-api/request/34559698-0d2079fe-2410-402b-a5f1-686ad10c5a48?tab=body)
+        to ensure you get the desired transcript output.
+
+
+        <img
+        src="https://content.pstmn.io/78a51fe3-2605-4d31-8abb-43dc9c502201/U2NyZWVuc2hvdCAyMDI0LTA1LTI5IGF0IDkucG5n">
+
+
+        Insert your media `"url"`. It will look like this
+        [<code>https://url-where-your-file-is-hosted.mp4.</code>](https://getartists.world/wp-content/uploads/Salad%20Transcription%20Benchmark%20Data%20Set/AAPL%20Stock%20_%20Apple%20Inc.%20Q1%202021%20Earnings%20Call.mp4.)
+        You can't use YouTube videos, Google Drive, or other file-sharing
+        services. It must be on your website or a publicly available storage
+        bucket like S3. If you don't have any of these, please use Salad's
+        simple storage service
+        [here](https://docs.salad.com/salad-simple-storage-service).
+
+
+        There is no need to convert your media files; send any of the following
+        formats to Salad's Transcription API
+
+
+        - _Audio:_ AIFF, FLAC, M4A, MP3, WAV
+            
+        - _Video:_ MP4, MKV, MOV, WEBM, WMA
+            
+        - **`language_code:`** Transcription is available in 97 languages. We
+        automatically identify the source language and transcribe the following
+        languages.
+            
+            - Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Bashkir, Basque, Belarusian, Bengali, Bosnian, Breton, Bulgarian, Burmese, Catalan, Chinese (Cantonese), Chinese (Mandarin), Croatian, Czech, Danish, Dutch, English, Estonian, Faroese, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hebrew, Hindi, Hungarian, Icelandic, Indonesian, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latvian, Lithuanian, Macedonian, Malay, Malayalam, Maltese, Marathi, Mongolian, Nepali, Norwegian, Oriya, Pashto, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Sanskrit, Serbian, Shona, Sindhi, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tagalog, Tajik, Tamil, Tatar, Telugu, Thai, Turkish, Turkmen, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Yiddish, Yoruba, Zulu.
+                
+        - **`diarization:`** Set to `"true"` for speaker separation and
+        identification. If you don't require it, set it to `"false"`.
+            
+            - Diarization requires the `language_code` to be defined. By default, it is set to `"en"` (English). Update to these supported source languages if required. `"fr"` (French), `"de"` (German), `"es"` (Spanish), "it" (Italian), `"ja"` (Japanese), `"zh"` (Chinese), `"nl"` (Dutch), `"uk"` (Ukrainian), `"pt"` (Portuguese), `"ar"` (Arabic), "cs (Czech), `"ru"` (Russian), `"pl"` (Polish), `"hu"` (Hungarian), `"fi"` (Finnish), `"fa"` (Persian), `"el"` (Greek), `"tr"` (Turkish), `"da"` (Danish), `"he"` (Hebrew), `"vi"` (Vietnamese), `"ko"` (Korean), `"ur"` (Urdu), `"te"` (Telugu), `"hi"` (Hindi), `"ca"` (Catalan), `"ml"` (Malayalam).
+                
+        - **`word_level_timestamps:`** Set to `"true"` to get word-level
+        timestamps. Set to `"false"`, to get only sentence-level timestamps.
+            
+        - **`srt:`** Set to `"true`" to generate a .srt output for caption and
+        subtitles. If you don't require it, set it to `"false"`
+            
+
+        Then click Send to submit your API post request, which, if successful,
+        will display a confirmation response that will include the job `"id"`
+        you'll need to [get your
+        transcript](https://www.postman.com/salad-apis/workspace/salad-transcription-api/request/34559698-8289f043-40d8-4de1-a95e-7111285aeed9).
+        It will look like this
+        `00-681d01e03cec5f7122952100b66f2330-aa5b353301b6bc50-01`
+
+
+        <img
+        src="https://content.pstmn.io/fa3f4482-3e8c-4177-ba27-d7453776e9ff/c2VuZC1yZXF1ZXN0LnBuZw==">
+
+
+        Now it's time to get your
+        [transcript](https://www.postman.com/salad-apis/workspace/salad-transcription-api/request/34559698-8289f043-40d8-4de1-a95e-7111285aeed9).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                input:
+                  url: insert-media-url-here
+                  language_code: en
+                  word_level_timestamps: true
+                  diarization: true
+                  srt: true
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Salad-Api-key
+          in: header
+          schema:
+            type: string
+          example: '{{Salad-Api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /insert-job-id-here:
+    get:
+      tags:
+        - default
+      summary: Get Transcript
+      description: >-
+        To retrieve your transcript, replace _(insert-job-id-here) in_ the GET
+        url after the /.
+
+
+        <img
+        src="https://content.pstmn.io/86b3cd54-ee45-4f53-a406-11cc680d4354/aW5zZXJ0LWpvYi1pZC5wbmc="
+        width="661" height="372">
+
+
+        Click Send, and if successful, you will see a status response, including
+        your transcript, to be saved in .json format. All jobs are purged after
+        24 hours to adhere to Salad's [security](https://salad.com/security) and
+        [privacy standards](https://salad.com/privacy).
+
+
+        <img
+        src="https://content.pstmn.io/260a20b6-85a1-4c4b-b4b3-b9f6744c250f/Z2V0LXRyYW5zY3JpcHQucG5n">
+
+
+        Here's an example .json output.
+
+
+        ``` json
+
+        {
+          "id": "54e84442-3576-45ca-904c-a1d90bc77baf",
+          "input": {
+            "url": "https://example.com/path/to/file.mp3",
+            "language_code": "en",
+            "word_level_timestamps": true,
+            "diarization": true,
+            "srt": true
+          },
+          "metadata": {
+            "my-job-id": 1234
+          },
+          "status": "succeeded",
+          "events": [
+            {
+              "action": "created",
+              "time": "2024-05-15T23:49:37.9946816+00:00"
+            },
+            {
+              "action": "started",
+              "time": "2024-05-15T23:50:23.0483322+00:00"
+            },
+            {
+              "action": "succeeded",
+              "time": "2024-05-15T23:50:23.4688229+00:00"
+            }
+          ],
+          "output": {
+            "segments": [
+              {
+                "start": 19.2,
+                "end": 19.903,
+                "text": "Thank you.",
+                "words": [
+                  {
+                    "word": "Thank",
+                    "start": 19.662,
+                    "end": 19.783,
+                    "score": 0.232
+                  },
+                  {
+                    "word": "you.",
+                    "start": 19.803,
+                    "end": 19.903,
+                    "score": 0.545
+                  }
+                ],
+                "speaker": "SPEAKER_00"
+              }
+            ],
+            "word_segments": [
+              {
+                "word": "Thank",
+                "start": 19.662,
+                "end": 19.783,
+                "score": 0.232,
+                "speaker": "SPEAKER_00"
+              },
+              {
+                "word": "you.",
+                "start": 19.803,
+                "end": 19.903,
+                "score": 0.545,
+                "speaker": "SPEAKER_00"
+              }
+            ],
+            "srt_content": "1
+        00:00:19,2                     --> 00:00:22,233
+
+        Because when we change the dialogue, we can change our world.
+
+        ",
+            "duration": 142.7795,
+            "processing_time": 51.17370915412903
+          },
+          "create_time": "2024-05-15T23:49:37.9946816+00:00",
+          "update_time": "2024-05-15T23:50:23.4688229+00:00"
+        }
+
+         ```
+
+        If you configured your Input Body to include an .srt for captions or
+        subtitles, at the end of the .json response you'll find the output you
+        need in `"srt_content"`
+
+
+        ``` json
+         "srt_content": "1
+        00:00:19,2                     --> 00:00:22,233
+
+        Because when we change the dialogue, we can change our world.
+
+        ",
+
+         ```
+
+        **"status"**
+
+
+        If your transcription request is
+
+
+        - _pending_ it has not yet been picked up for processing.
+            
+        - _created_ the transcription job is now in our queue to be processed.
+            
+        - _running_ the transcription is processing.
+            
+        - _"succeeded"_ the transcript is ready.
+            
+        - _failed_ the transcript was not created. We will automatically
+        re-try the transcription process until it fails three times. If we are
+        unable to transcribe your media, you will get a 200 error with one of
+        the following messages. Send us a support request at
+        [support@salad.com](https://mailto:support@salad.com) if this happens.
+            
+            - File size is more than 3GB  
+                File can not be downloaded or duration is missing. Please check your file and try again.  
+                File duration is more than 2.5 hours
+      parameters:
+        - name: Salad-Api-Key
+          in: header
+          schema:
+            type: string
+          example: '{{Salad-Api-key}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
