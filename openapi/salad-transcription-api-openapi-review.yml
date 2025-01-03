@@ -1,0 +1,923 @@
+executed: '2025-01-03T16:08:10.540Z'
+results:
+  - code: openapi-external-docs-error
+    message: OpenAPI MUST Have External Documentation
+    path: []
+    severity: 0
+    range:
+      start:
+        line: 0
+        character: 0
+      end:
+        line: 265
+        character: 32
+  - code: openapi-tags-object-error
+    message: OpenAPIs MUST Have a Tag Object
+    path: []
+    severity: 0
+    range:
+      start:
+        line: 0
+        character: 0
+      end:
+        line: 265
+        character: 32
+  - code: openapi-info-contact-error
+    message: Info MUST Have Contact Object
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 9
+        character: 16
+  - code: openapi-info-license-error
+    message: Info MUST Have License
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 9
+        character: 16
+  - code: openapi-info-terms-of-service-error
+    message: Info MUST Have Terms of Service
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 9
+        character: 16
+  - code: openapi-info-title-info
+    message: Info Has Title
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 32
+  - code: openapi-info-title-upper-case-info
+    message: Info Title MUST Have First Characters Capitalized
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 32
+  - code: openapi-info-description-info
+    message: Info Has Description
+    path:
+      - info
+      - description
+    severity: 2
+    range:
+      start:
+        line: 3
+        character: 15
+      end:
+        line: 8
+        character: 31
+  - code: openapi-info-version-info
+    message: Info Has Version
+    path:
+      - info
+      - version
+    severity: 2
+    range:
+      start:
+        line: 9
+        character: 11
+      end:
+        line: 9
+        character: 16
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /
+    severity: 0
+    range:
+      start:
+        line: 13
+        character: 4
+      end:
+        line: 105
+        character: 32
+  - code: openapi-no-path-trailing-slash-error
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /
+    severity: 0
+    range:
+      start:
+        line: 13
+        character: 4
+      end:
+        line: 105
+        character: 32
+  - code: openapi-version-in-path-info
+    message: Version in Path
+    path:
+      - paths
+      - /
+    severity: 2
+    range:
+      start:
+        line: 13
+        character: 4
+      end:
+        line: 105
+        character: 32
+  - code: openapi-operation-security-definitions-error
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /
+      - post
+    severity: 0
+    range:
+      start:
+        line: 14
+        character: 9
+      end:
+        line: 105
+        character: 32
+  - code: openapi-operations-operation-ids-error
+    message: Operation MUST Have Identifier
+    path:
+      - paths
+      - /
+      - post
+    severity: 0
+    range:
+      start:
+        line: 14
+        character: 9
+      end:
+        line: 105
+        character: 32
+  - code: openapi-operations-tags-info
+    message: Operations Has Tags
+    path:
+      - paths
+      - /
+      - post
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 15
+        character: 11
+      end:
+        line: 16
+        character: 17
+  - code: openapi-operations-tags-upper-case-error
+    message: Operation Tag Names MUST Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /
+      - post
+      - tags
+      - '0'
+    severity: 0
+    range:
+      start:
+        line: 16
+        character: 10
+      end:
+        line: 16
+        character: 17
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /
+      - post
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 17
+        character: 15
+      end:
+        line: 17
+        character: 25
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /
+      - post
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 17
+        character: 15
+      end:
+        line: 17
+        character: 25
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /
+      - post
+      - description
+    severity: 2
+    range:
+      start:
+        line: 18
+        character: 19
+      end:
+        line: 77
+        character: 145
+  - code: openapi-operations-description-length-error
+    message: Operation Description MUST Be Less Than 250 Characters
+    path:
+      - paths
+      - /
+      - post
+      - description
+    severity: 1
+    range:
+      start:
+        line: 18
+        character: 19
+      end:
+        line: 77
+        character: 145
+  - code: openapi-request-body-on-post-info
+    message: POST Requests Has a Body
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+    severity: 2
+    range:
+      start:
+        line: 78
+        character: 18
+      end:
+        line: 89
+        character: 27
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+      - content
+    severity: 2
+    range:
+      start:
+        line: 79
+        character: 16
+      end:
+        line: 89
+        character: 27
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+      - content
+      - application/json
+    severity: 2
+    range:
+      start:
+        line: 80
+        character: 27
+      end:
+        line: 89
+        character: 27
+  - code: openapi-request-body-have-examples-error
+    message: Request Bodies MUST Have Examples
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+      - content
+      - application/json
+    severity: 0
+    range:
+      start:
+        line: 80
+        character: 27
+      end:
+        line: 89
+        character: 27
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+      - content
+      - application/json
+      - schema
+    severity: 2
+    range:
+      start:
+        line: 81
+        character: 19
+      end:
+        line: 89
+        character: 27
+  - code: openapi-request-body-have-schema-ref-info
+    message: Request Bodies Use Schema Reference
+    path:
+      - paths
+      - /
+      - post
+      - requestBody
+      - content
+      - application/json
+      - schema
+    severity: 2
+    range:
+      start:
+        line: 81
+        character: 19
+      end:
+        line: 89
+        character: 27
+  - code: openapi-components-parameters-description-error
+    message: Parameters MUST Have a Description
+    path:
+      - paths
+      - /
+      - post
+      - parameters
+      - '0'
+    severity: 1
+    range:
+      start:
+        line: 91
+        character: 10
+      end:
+        line: 95
+        character: 35
+  - code: openapi-parameters-componentized-error
+    message: Parameters MUST use components $ref.
+    path:
+      - paths
+      - /
+      - post
+      - parameters
+      - '0'
+    severity: 0
+    range:
+      start:
+        line: 91
+        character: 10
+      end:
+        line: 95
+        character: 35
+  - code: openapi-components-parameters-description-error
+    message: Parameters MUST Have a Description
+    path:
+      - paths
+      - /
+      - post
+      - parameters
+      - '1'
+    severity: 1
+    range:
+      start:
+        line: 96
+        character: 10
+      end:
+        line: 100
+        character: 38
+  - code: openapi-parameters-componentized-error
+    message: Parameters MUST use components $ref.
+    path:
+      - paths
+      - /
+      - post
+      - parameters
+      - '1'
+    severity: 0
+    range:
+      start:
+        line: 96
+        character: 10
+      end:
+        line: 100
+        character: 38
+  - code: openapi-response-post-201-status-code-error
+    message: POST Responses MUST Have 201 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-400-status-code-error
+    message: POST Responses Has 400 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-401-status-code-error
+    message: POST Responses Has 401 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-403-status-code-error
+    message: POST Responses Has 403 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-404-status-code-error
+    message: POST Responses Has 404 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-429-status-code-error
+    message: POST Responses MUST Have 429 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-response-post-500-status-code-error
+    message: POST Responses MUST Have 500 Status Codes
+    path:
+      - paths
+      - /
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 101
+        character: 16
+      end:
+        line: 105
+        character: 32
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /insert-job-id-here
+    severity: 0
+    range:
+      start:
+        line: 106
+        character: 22
+      end:
+        line: 265
+        character: 32
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /insert-job-id-here
+    severity: 2
+    range:
+      start:
+        line: 106
+        character: 22
+      end:
+        line: 265
+        character: 32
+  - code: openapi-version-in-path-info
+    message: Version in Path
+    path:
+      - paths
+      - /insert-job-id-here
+    severity: 2
+    range:
+      start:
+        line: 106
+        character: 22
+      end:
+        line: 265
+        character: 32
+  - code: openapi-no-request-body-on-get-info
+    message: GET Request Body
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+    severity: 2
+    range:
+      start:
+        line: 107
+        character: 8
+      end:
+        line: 265
+        character: 32
+  - code: openapi-operation-security-definitions-error
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+    severity: 0
+    range:
+      start:
+        line: 107
+        character: 8
+      end:
+        line: 265
+        character: 32
+  - code: openapi-operations-operation-ids-error
+    message: Operation MUST Have Identifier
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+    severity: 0
+    range:
+      start:
+        line: 107
+        character: 8
+      end:
+        line: 265
+        character: 32
+  - code: openapi-operations-tags-info
+    message: Operations Has Tags
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 108
+        character: 11
+      end:
+        line: 109
+        character: 17
+  - code: openapi-operations-tags-upper-case-error
+    message: Operation Tag Names MUST Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - tags
+      - '0'
+    severity: 0
+    range:
+      start:
+        line: 109
+        character: 10
+      end:
+        line: 109
+        character: 17
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 110
+        character: 15
+      end:
+        line: 110
+        character: 29
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 110
+        character: 15
+      end:
+        line: 110
+        character: 29
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - description
+    severity: 2
+    range:
+      start:
+        line: 111
+        character: 19
+      end:
+        line: 254
+        character: 52
+  - code: openapi-operations-description-length-error
+    message: Operation Description MUST Be Less Than 250 Characters
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - description
+    severity: 1
+    range:
+      start:
+        line: 111
+        character: 19
+      end:
+        line: 254
+        character: 52
+  - code: openapi-components-parameters-description-error
+    message: Parameters MUST Have a Description
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - parameters
+      - '0'
+    severity: 1
+    range:
+      start:
+        line: 256
+        character: 10
+      end:
+        line: 260
+        character: 38
+  - code: openapi-parameters-componentized-error
+    message: Parameters MUST use components $ref.
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - parameters
+      - '0'
+    severity: 0
+    range:
+      start:
+        line: 256
+        character: 10
+      end:
+        line: 260
+        character: 38
+  - code: openapi-response-get-400-status-code-error
+    message: GET Responses MUST Have 400 Status Codes
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 261
+        character: 16
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-401-status-code-error
+    message: GET Responses Has 401 Status Code
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 261
+        character: 16
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-403-status-code-error
+    message: GET Responses Has 403 Status Code
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 261
+        character: 16
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-429-status-code-error
+    message: GET Responses Has 429 Status Code
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 261
+        character: 16
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-500-status-code-error
+    message: GET Responses MUST Have 500 Status Code
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 261
+        character: 16
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-200-status-code-info
+    message: GET Responses Has 200 Status Codes
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+    severity: 2
+    range:
+      start:
+        line: 262
+        character: 14
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-200-description-info
+    message: GET 200 Response has description.
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 263
+        character: 23
+      end:
+        line: 263
+        character: 42
+  - code: openapi-response-get-200-content-info
+    message: GET 200 Response Has Content.
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+      - content
+    severity: 2
+    range:
+      start:
+        line: 264
+        character: 18
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-200-media-type-examples-error
+    message: GET 200 Response MUST Have Examples
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+    severity: 0
+    range:
+      start:
+        line: 265
+        character: 29
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-200-media-type-info
+    message: GET 200 Response Has Media Type.
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+    severity: 2
+    range:
+      start:
+        line: 265
+        character: 29
+      end:
+        line: 265
+        character: 32
+  - code: openapi-response-get-200-media-type-schema-error
+    message: GET 200 Response MUST Have Schema
+    path:
+      - paths
+      - /insert-job-id-here
+      - get
+      - responses
+      - '200'
+      - content
+      - application/json
+    severity: 0
+    range:
+      start:
+        line: 265
+        character: 29
+      end:
+        line: 265
+        character: 32
