@@ -10,6 +10,8 @@ apis:
     properties:
       - url: https://salad.com/transcription
         type: Documentation
+      - type: OpenAPI
+        url: properties/salad-transcription-api-openapi.yml
     description: >-
       Salad Transcription API, powered by Whisper Large v3, offers unparalleled
       transcription accuracy, translation, summarization & analysis, all for
