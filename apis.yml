@@ -5,9 +5,9 @@ apis:
   - aid: salad-transcription-api:salad-transcription-api
     name: Salad Transcription API
     tags:
+      - Audio Files
       - Jobs
       - Transcriptions
-      - Audio Files
     humanURL: https://salad.com/transcription
     properties:
       - url: https://salad.com/transcription
@@ -40,8 +40,7 @@ common:
     type: About
   - name: Blog - SaladCloud Blog
     description: 'null'
-    url: 
-      https://blog.salad.com/?_gl=1*wlg1yz*_gcl_au*NTI4MzE4NzY0LjE3MzU5MjAxNzc.
+    url: https://blog.salad.com/?_gl=1*wlg1yz*_gcl_au*NTI4MzE4NzY0LjE3MzU5MjAxNzc.
     type: Blog
   - name: Security | Salad
     description: 'null'
@@ -61,8 +60,7 @@ common:
     type: PressReleases
   - name: Trust Center - Salad
     description: 'null'
-    url: 
-      https://trust.salad.com/?_gl=1*b0d9i*_gcl_au*NTI4MzE4NzY0LjE3MzU5MjAxNzc.
+    url: https://trust.salad.com/?_gl=1*b0d9i*_gcl_au*NTI4MzE4NzY0LjE3MzU5MjAxNzc.
     type: Trust
 created: '2024-11-17'
 modified: '2026-03-16'
