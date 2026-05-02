@@ -1,0 +1,63 @@
+{
+  "name": "Salad Transcription API Data Structures",
+  "description": "Core data structure documentation for the Salad Transcription API.",
+  "version": "1.0.0",
+  "structures": [
+    {
+      "name": "TranscriptionRequest",
+      "description": "Request body for submitting a media file for transcription.",
+      "fields": [
+        {
+          "name": "input",
+          "type": "object",
+          "required": true,
+          "description": "Input configuration for the transcription job.",
+          "children": [
+            { "name": "url", "type": "string (URI)", "required": true, "description": "URL of audio/video file. Must be publicly accessible (no YouTube/Drive)." },
+            { "name": "language_code", "type": "string", "required": false, "description": "BCP-47 language code. Defaults to 'en'. 97 languages supported." },
+            { "name": "word_level_timestamps", "type": "boolean", "required": false, "description": "Include word-level start/end times." },
+            { "name": "diarization", "type": "boolean", "required": false, "description": "Enable speaker identification and separation." },
+            { "name": "srt", "type": "boolean", "required": false, "description": "Generate SRT captions/subtitles output." }
+          ]
+        },
+        { "name": "metadata", "type": "object", "required": false, "description": "User-defined metadata attached to the job." }
+      ]
+    },
+    {
+      "name": "TranscriptionJob",
+      "description": "Job object returned when submitting a transcription request.",
+      "fields": [
+        { "name": "id", "type": "string (UUID)", "required": false, "description": "Unique job identifier." },
+        { "name": "input", "type": "TranscriptionInput", "required": false, "description": "Original input configuration." },
+        { "name": "metadata", "type": "object", "required": false, "description": "User metadata." },
+        { "name": "status", "type": "string", "required": false, "description": "Job status: pending | created | running | succeeded | failed." },
+        { "name": "events", "type": "JobEvent[]", "required": false, "description": "Timeline of status events." },
+        { "name": "output", "type": "TranscriptionOutput", "required": false, "description": "Transcription results (available when succeeded)." },
+        { "name": "create_time", "type": "string (datetime)", "required": false, "description": "ISO 8601 creation time." },
+        { "name": "update_time", "type": "string (datetime)", "required": false, "description": "ISO 8601 last update time." }
+      ]
+    },
+    {
+      "name": "TranscriptionOutput",
+      "description": "The transcription result returned when a job succeeds.",
+      "fields": [
+        { "name": "segments", "type": "TranscriptSegment[]", "required": false, "description": "Array of transcribed text segments with timing." },
+        { "name": "word_segments", "type": "WordSegment[]", "required": false, "description": "Flat array of individual word timings." },
+        { "name": "srt_content", "type": "string", "required": false, "description": "SRT-formatted caption content." },
+        { "name": "duration", "type": "number", "required": false, "description": "Total media duration in seconds." },
+        { "name": "processing_time", "type": "number", "required": false, "description": "Processing time in seconds." }
+      ]
+    },
+    {
+      "name": "TranscriptSegment",
+      "description": "A single segment of transcribed speech.",
+      "fields": [
+        { "name": "start", "type": "number", "required": false, "description": "Segment start time in seconds." },
+        { "name": "end", "type": "number", "required": false, "description": "Segment end time in seconds." },
+        { "name": "text", "type": "string", "required": false, "description": "Transcribed text." },
+        { "name": "speaker", "type": "string", "required": false, "description": "Speaker label (e.g., SPEAKER_00) when diarization is enabled." },
+        { "name": "words", "type": "WordSegment[]", "required": false, "description": "Word-level timing details." }
+      ]
+    }
+  ]
+}

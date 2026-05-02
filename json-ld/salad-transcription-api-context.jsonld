@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "salad": "https://salad.com/transcription/vocab#",
+    "TranscriptionJob": {
+      "@id": "salad:TranscriptionJob",
+      "@type": "@id"
+    },
+    "TranscriptionInput": {
+      "@id": "salad:TranscriptionInput"
+    },
+    "TranscriptionOutput": {
+      "@id": "salad:TranscriptionOutput"
+    },
+    "TranscriptSegment": {
+      "@id": "salad:TranscriptSegment"
+    },
+    "id": "@id",
+    "input": "salad:input",
+    "output": "salad:output",
+    "status": "salad:status",
+    "events": "salad:events",
+    "metadata": "salad:metadata",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "language_code": {
+      "@id": "schema:inLanguage"
+    },
+    "diarization": {
+      "@id": "salad:diarization",
+      "@type": "xsd:boolean"
+    },
+    "word_level_timestamps": {
+      "@id": "salad:wordLevelTimestamps",
+      "@type": "xsd:boolean"
+    },
+    "srt": {
+      "@id": "salad:generateSRT",
+      "@type": "xsd:boolean"
+    },
+    "segments": {
+      "@id": "salad:segments",
+      "@container": "@list"
+    },
+    "start": {
+      "@id": "salad:startTime",
+      "@type": "xsd:decimal"
+    },
+    "end": {
+      "@id": "salad:endTime",
+      "@type": "xsd:decimal"
+    },
+    "text": {
+      "@id": "schema:text"
+    },
+    "speaker": {
+      "@id": "salad:speaker"
+    },
+    "score": {
+      "@id": "salad:confidenceScore",
+      "@type": "xsd:decimal"
+    },
+    "duration": {
+      "@id": "schema:duration"
+    },
+    "srt_content": {
+      "@id": "salad:srtContent"
+    },
+    "create_time": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "update_time": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

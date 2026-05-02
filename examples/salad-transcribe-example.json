@@ -1,0 +1,51 @@
+{
+  "operation": "Transcribe Media",
+  "method": "POST",
+  "path": "/",
+  "description": "Submit an audio file for transcription with diarization and word-level timestamps.",
+  "request": {
+    "headers": {
+      "Salad-Api-Key": "<your-api-key>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "input": {
+        "url": "https://storage.example.com/audio/meeting-recording-2026-05-02.mp3",
+        "language_code": "en",
+        "word_level_timestamps": true,
+        "diarization": true,
+        "srt": false
+      },
+      "metadata": {
+        "meeting-id": "mtg-2026-05-02-001",
+        "department": "engineering"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "54e84442-3576-45ca-904c-a1d90bc77baf",
+      "input": {
+        "url": "https://storage.example.com/audio/meeting-recording-2026-05-02.mp3",
+        "language_code": "en",
+        "word_level_timestamps": true,
+        "diarization": true,
+        "srt": false
+      },
+      "metadata": {
+        "meeting-id": "mtg-2026-05-02-001",
+        "department": "engineering"
+      },
+      "status": "created",
+      "events": [
+        {
+          "action": "created",
+          "time": "2026-05-02T10:00:00.000Z"
+        }
+      ],
+      "create_time": "2026-05-02T10:00:00.000Z",
+      "update_time": "2026-05-02T10:00:00.000Z"
+    }
+  }
+}

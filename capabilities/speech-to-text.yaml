@@ -1,0 +1,93 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Salad Speech-to-Text"
+  description: >-
+    Workflow capability for speech-to-text transcription using Salad's distributed
+    GPU inference network. Supports multi-language transcription, speaker diarization,
+    word-level timestamps, and SRT caption generation for audio and video content.
+  tags:
+    - Audio Transcription
+    - Captions
+    - Diarization
+    - Media Processing
+    - Salad
+    - Speech Recognition
+    - Subtitles
+    - Video Transcription
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SALAD_API_KEY: SALAD_API_KEY
+      SALAD_API_URL: SALAD_API_URL
+
+capability:
+  consumes:
+    - import: salad-transcription
+      location: ./shared/salad-transcription-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: salad-speech-to-text-api
+      description: "Unified REST API for Salad speech-to-text transcription workflows."
+      resources:
+        - path: /v1/transcriptions
+          name: transcriptions
+          description: "Submit audio and video files for transcription."
+          operations:
+            - method: POST
+              name: transcribe-media
+              description: "Submit a media URL for transcription with language and output options."
+              call: "salad-transcription.transcribe-media"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/transcriptions/{jobId}
+          name: transcription-by-id
+          description: "Retrieve transcription results for a completed job."
+          operations:
+            - method: GET
+              name: get-transcript
+              description: "Retrieve the full transcript, segments, and optional SRT output."
+              call: "salad-transcription.get-transcript"
+              with:
+                jobId: "rest.jobId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: salad-speech-to-text-mcp
+      transport: http
+      description: "MCP server for AI-assisted Salad speech-to-text transcription."
+      tools:
+        - name: transcribe-audio-video
+          description: >-
+            Submit an audio or video file URL to Salad for speech-to-text transcription.
+            Supports 97 languages, speaker diarization, word-level timestamps, and SRT output.
+            Returns a job ID to retrieve results.
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salad-transcription.transcribe-media"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-transcription-result
+          description: >-
+            Retrieve the completed transcription for a job by ID. Returns segments,
+            word timestamps, speaker labels, and optional SRT caption content.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salad-transcription.get-transcript"
+          with:
+            jobId: "tools.jobId"
+          outputParameters:
+            - type: object
+              mapping: "$."

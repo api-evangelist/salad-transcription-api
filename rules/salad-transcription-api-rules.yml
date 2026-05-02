@@ -1,0 +1,69 @@
+extends: spectral:oas
+rules:
+
+  salad-operation-summary-required:
+    description: All operations must have a summary.
+    message: "Operation must have a non-empty summary."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+
+  salad-api-key-header-required:
+    description: Salad API uses Salad-Api-Key header for authentication.
+    message: "Operation should document Salad-Api-Key header parameter."
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          if:
+            properties:
+              name:
+                const: Salad-Api-Key
+          then:
+            properties:
+              in:
+                const: header
+
+  salad-response-200-required:
+    description: All operations must define a 200 success response.
+    message: "Operation must define a 200 success response."
+    severity: error
+    given: "$.paths[*][*].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required: ["200"]
+
+  salad-content-type-json:
+    description: Request bodies should use application/json.
+    message: "Request body should use application/json content type."
+    severity: warn
+    given: "$.paths[*][*].requestBody.content"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required: ["application/json"]
+
+  salad-info-contact:
+    description: API info should include contact details.
+    message: "API info should include contact information."
+    severity: hint
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  salad-servers-defined:
+    description: API must define at least one server.
+    message: "API must define at least one server URL."
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy

@@ -1,0 +1,134 @@
+vocabulary:
+  name: Salad Transcription API Vocabulary
+  description: >-
+    Operational vocabulary for the Salad Transcription API covering speech-to-text
+    concepts, transcription job lifecycle, audio/video formats, diarization,
+    and output formats.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  tags:
+    - Audio Transcription
+    - Media Processing
+    - Salad
+    - Speech Recognition
+
+  domains:
+    - name: Transcription Concepts
+      description: "Core terms for speech-to-text transcription."
+      terms:
+        - term: Transcription
+          definition: >-
+            The process of converting spoken audio or video content into written text.
+          aliases: [Speech-to-Text, STT, ASR]
+          related: [Segment, Diarization, Language Code]
+
+        - term: Transcription Job
+          definition: >-
+            A submitted request to transcribe a media file. Has a lifecycle from
+            pending through created, running, succeeded, or failed.
+          aliases: [Job]
+          related: [Job ID, Status, Output]
+
+        - term: Job ID
+          definition: >-
+            A unique identifier returned when a transcription job is submitted.
+            Used to retrieve results via the GET endpoint.
+          aliases: [ID, Trace ID]
+          related: [Transcription Job, Status]
+
+        - term: Segment
+          definition: >-
+            A chunk of transcribed speech with start time, end time, text content,
+            and optional speaker label.
+          aliases: [Utterance, Chunk]
+          related: [Word Segment, Speaker, Timestamp]
+
+        - term: Word Segment
+          definition: >-
+            The finest unit of transcription output, providing start/end times
+            and confidence score for each individual word.
+          aliases: [Word-Level Timestamp, Word]
+          related: [Segment, Score]
+
+    - name: Configuration Options
+      description: "Parameters controlling transcription behavior."
+      terms:
+        - term: Language Code
+          definition: >-
+            A BCP-47 language code specifying the spoken language to transcribe.
+            97 languages supported. Defaults to 'en' (English) if not specified.
+          aliases: [Language, Locale]
+          related: [Transcription, Diarization]
+
+        - term: Diarization
+          definition: >-
+            The process of separating audio into distinct speaker turns, labeling
+            each segment with a speaker identifier (e.g., SPEAKER_00, SPEAKER_01).
+            Requires specifying a supported language_code.
+          aliases: [Speaker Separation, Speaker Identification]
+          related: [Segment, Language Code]
+
+        - term: Word-Level Timestamps
+          definition: >-
+            A transcription option that includes start and end time markers for
+            every individual word in the output, in addition to segment-level timing.
+          aliases: [Word Timestamps]
+          related: [Segment, Word Segment]
+
+        - term: SRT Output
+          definition: >-
+            SubRip Subtitle format. When enabled, the transcription output includes
+            an srt_content field with properly formatted caption text for use in
+            video players or subtitle tracks.
+          aliases: [SRT, Subtitles, Captions]
+          related: [Segment, Output]
+
+    - name: Job Lifecycle
+      description: "States in the transcription job workflow."
+      terms:
+        - term: Pending
+          definition: >-
+            Initial state before the job is picked up for processing.
+          related: [Created, Running, Job]
+
+        - term: Created
+          definition: >-
+            The job has been queued for processing.
+          related: [Pending, Running, Job]
+
+        - term: Running
+          definition: >-
+            The transcription is actively being processed on Salad's GPU network.
+          related: [Created, Succeeded, Failed, Job]
+
+        - term: Succeeded
+          definition: >-
+            The transcription completed successfully. The output field contains results.
+          related: [Running, Output, Segment]
+
+        - term: Failed
+          definition: >-
+            The transcription could not be completed after three automatic retries.
+            Common causes: file over 3GB, file unavailable, or duration over 2.5 hours.
+          related: [Running, Job]
+
+    - name: Media Formats
+      description: "Supported input media formats."
+      terms:
+        - term: Audio Formats
+          definition: >-
+            Supported audio file formats for transcription: AIFF, FLAC, M4A, MP3, WAV.
+          related: [Transcription, URL]
+
+        - term: Video Formats
+          definition: >-
+            Supported video file formats for transcription: MP4, MKV, MOV, WEBM, WMA.
+          related: [Transcription, URL]
+
+        - term: Media URL
+          definition: >-
+            The publicly accessible URL pointing to the audio or video file to
+            be transcribed. Must be on a public server or storage bucket (e.g., S3).
+            YouTube and Google Drive links are not supported.
+          related: [Transcription Job, Input]

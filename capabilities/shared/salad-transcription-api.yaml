@@ -1,0 +1,138 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Salad Transcription API"
+  description: >-
+    Salad Transcription API converts audio and video files to text using
+    advanced speech recognition. Supports 97 languages, speaker diarization,
+    word-level timestamps, and SRT caption generation.
+  tags:
+    - Audio Transcription
+    - Media Processing
+    - Natural Language Processing
+    - Salad
+    - Speech Recognition
+    - Video Transcription
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SALAD_API_KEY: SALAD_API_KEY
+      SALAD_API_URL: SALAD_API_URL
+
+capability:
+  consumes:
+    - type: http
+      namespace: salad-transcription
+      baseUri: "{{env.SALAD_API_URL}}"
+      description: "Salad Transcription API for speech-to-text conversion."
+      authentication:
+        type: apikey
+        key: Salad-Api-Key
+        value: "{{env.SALAD_API_KEY}}"
+        placement: header
+      resources:
+        - name: transcription-jobs
+          path: /
+          description: "Submit audio/video files for transcription."
+          operations:
+            - name: transcribe-media
+              method: POST
+              description: "Submit a media file for transcription."
+              inputParameters:
+                - name: Content-Type
+                  in: header
+                  type: string
+                  required: false
+                  description: "Content type (application/json)."
+              outputRawFormat: json
+              outputParameters:
+                - name: job
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  input:
+                    url: "{{tools.media_url}}"
+                    language_code: "{{tools.language_code}}"
+                    word_level_timestamps: "{{tools.word_level_timestamps}}"
+                    diarization: "{{tools.diarization}}"
+                    srt: "{{tools.srt}}"
+
+        - name: transcript-results
+          path: /{jobId}
+          description: "Retrieve transcription results by job ID."
+          operations:
+            - name: get-transcript
+              method: GET
+              description: "Retrieve the transcript for a completed transcription job."
+              inputParameters:
+                - name: jobId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The transcription job ID returned when submitting."
+              outputRawFormat: json
+              outputParameters:
+                - name: transcript
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: salad-transcription-api
+      resources:
+        - path: /v1/transcriptions
+          name: transcriptions
+          description: "Submit media files for transcription."
+          operations:
+            - method: POST
+              name: transcribe-media
+              description: "Submit audio or video for transcription."
+              call: "salad-transcription.transcribe-media"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/transcriptions/{jobId}
+          name: transcription-result
+          description: "Get transcription result by job ID."
+          operations:
+            - method: GET
+              name: get-transcript
+              description: "Retrieve a completed transcript."
+              call: "salad-transcription.get-transcript"
+              with:
+                jobId: "rest.jobId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: salad-transcription-mcp
+      transport: http
+      tools:
+        - name: transcribe-media
+          description: "Submit an audio or video file URL for speech-to-text transcription."
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salad-transcription.transcribe-media"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-transcript
+          description: "Retrieve the transcription result for a completed job by job ID."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salad-transcription.get-transcript"
+          with:
+            jobId: "tools.jobId"
+          outputParameters:
+            - type: object
+              mapping: "$."
