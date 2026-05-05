@@ -1,0 +1,13 @@
+{
+  "repo": "salad-transcription-api",
+  "feeds": [
+    {
+      "source": "https://blog.salad.com/?_gl=1*wlg1yz*_gcl_au*NTI4MzE4NzY0LjE3MzU5MjAxNzc.",
+      "feed_url": "https://blog.salad.com/feed/",
+      "saved": 10,
+      "title": "SaladCloud Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:35:18Z"
+}
