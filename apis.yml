@@ -50,6 +50,10 @@ kind: company
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: TrustCenter
+    url: security/salad-transcription-api-trust-center.yml
+  - type: DomainSecurity
+    url: security/salad-transcription-api-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/SaladTechnologies
   - type: LinkedIn
