@@ -2,36 +2,27 @@ aid: salad-transcription-api
 url: >-
   https://raw.githubusercontent.com/api-evangelist/salad-transcription-api/refs/heads/main/apis.yml
 apis:
-  - aid: salad-transcription-api:salad-transcription-api
-    name: Salad Transcription API
-    description: >-
-      Salad Transcription API converts speech to text using distributed GPU inference.
-      Supports 97 languages, speaker diarization, word-level timestamps, and SRT
-      caption generation for audio (AIFF, FLAC, M4A, MP3, WAV) and video (MP4, MKV,
-      MOV, WEBM, WMA) files.
-    tags:
-      - Audio Files
-      - Audio Transcription
-      - Diarization
-      - Jobs
-      - Speech Recognition
-      - Transcriptions
-    humanURL: https://salad.com/transcription
-    properties:
-      - url: https://salad.com/transcription
-        type: Documentation
-      - url: openapi/salad-transcription-api-openapi.yml
-        type: OpenAPI
-      - type: JSONSchema
-        url: json-schema/salad-transcription-job-schema.json
-      - type: JSONLD
-        url: json-ld/salad-transcription-api-context.jsonld
-      - type: SpectralRules
-        url: rules/salad-transcription-api-rules.yml
-      - type: Capabilities
-        url: capabilities/speech-to-text.yaml
-      - type: Vocabulary
-        url: vocabulary/salad-transcription-api-vocabulary.yml
+- aid: salad-transcription-api:salad-transcription-api-default-api
+  name: Salad Transcription API default API
+  description: The default API from Salad Transcription API — 2 operation(s) for default.
+  humanURL: https://salad.com/transcription
+  tags:
+  - default
+  properties:
+  - type: OpenAPI
+    url: openapi/salad-transcription-api-default-api-openapi.yml
+  - type: Documentation
+    url: https://salad.com/transcription
+  - type: JSONSchema
+    url: json-schema/salad-transcription-job-schema.json
+  - type: JSONLD
+    url: json-ld/salad-transcription-api-context.jsonld
+  - type: SpectralRules
+    url: rules/salad-transcription-api-rules.yml
+  - type: Capabilities
+    url: capabilities/speech-to-text.yaml
+  - type: Vocabulary
+    url: vocabulary/salad-transcription-api-vocabulary.yml
 name: Salad Transcription API
 description: >-
   Salad Transcription API provides speech-to-text conversion powered by Salad's
@@ -47,7 +38,19 @@ tags:
   - Video Processing
 type: Index
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/salad-transcription-api.png
 access: 3rd-Party
 common:
   - type: TrustCenter
