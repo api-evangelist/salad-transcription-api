@@ -1,0 +1,18 @@
+{
+  "provider": "salad-transcription-api",
+  "sources": [
+    "salad-transcription-api-openapi.yml"
+  ],
+  "outputs": [
+    "salad-transcription-api-default-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/salad-transcription-api-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "salad-transcription-api-openapi.yml: declared missing tag: default"
+  ],
+  "skipped": []
+}
