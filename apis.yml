@@ -19,8 +19,6 @@ apis:
     url: json-ld/salad-transcription-api-context.jsonld
   - type: SpectralRules
     url: rules/salad-transcription-api-rules.yml
-  - type: Capabilities
-    url: capabilities/speech-to-text.yaml
   - type: Vocabulary
     url: vocabulary/salad-transcription-api-vocabulary.yml
 name: Salad Transcription API
