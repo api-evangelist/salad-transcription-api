@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salad Transcription default API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Transcribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{{api url}}/",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Salad-Api-key",
+                "value": "{{Salad-Api-key}}"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To make a Transcription request, you must check/update the following [Body inputs](https://www.postman.com/salad-apis/workspace/salad-transcription-api/request/34559698-0d2079fe-2410-402b-a5f1-686ad10c5a48?tab=body) to ensure you get the desired transcript output.\n\n<img src=\"https://content.pstmn.io/78a51fe3-2605-4d31-8abb-43dc9c502201/U2NyZWVuc2hvdCAyMDI0LTA1LTI5IGF0IDkucG5n\">\n\nInsert your media `\"url\"`. It will look like this [<code>https://url-where-your-file-is-hosted.mp4.</code>](https://ge"
+        },
+        {
+          "info": {
+            "name": "Get Transcript",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{{api url}}/insert-job-id-here",
+            "headers": [
+              {
+                "name": "Salad-Api-Key",
+                "value": "{{Salad-Api-key}}"
+              }
+            ]
+          },
+          "docs": "To retrieve your transcript, replace _(insert-job-id-here) in_ the GET url after the /.\n\n<img src=\"https://content.pstmn.io/86b3cd54-ee45-4f53-a406-11cc680d4354/aW5zZXJ0LWpvYi1pZC5wbmc=\" width=\"661\" height=\"372\">\n\nClick Send, and if successful, you will see a status response, including your transcript, to be saved in .json format. All jobs are purged after 24 hours to adhere to Salad's [security](https://salad.com/security) and [privacy standards](https://salad.com/privacy).\n\n<img src=\"https://c"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
