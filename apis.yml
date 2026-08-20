@@ -6,7 +6,8 @@ apis:
   name: Salad Transcription API default API
   description: The default API from Salad Transcription API — 2 operation(s) for default.
   humanURL: https://salad.com/transcription
-  tags:
+  tags: []
+  tags_raw:
   - default
   properties:
   - type: OpenAPI
