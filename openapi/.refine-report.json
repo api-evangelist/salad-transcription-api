@@ -1,18 +1,21 @@
 {
   "provider": "salad-transcription-api",
   "sources": [
-    "salad-transcription-api-openapi.yml"
+    "_original/salad-transcription-api-openapi.yml"
   ],
   "outputs": [
     "salad-transcription-api-default-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/salad-transcription-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "salad-transcription-api-openapi.yml: declared missing tag: default"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "salad-transcription-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "salad-transcription-api-openapi.yml: declared missing tag: default",
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "salad-transcription-api-default-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
